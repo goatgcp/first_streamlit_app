@@ -17,7 +17,8 @@ fruits_selected =streamlit.multiselect("pick some fruits", list(my_fruit_list.in
 fruits_to_show = my_fruit_list.loc[fruits_selected]
 streamlit.dataframe(fruits_to_show)
 
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
+streamlit.header('Fruity Advice')
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/kiwi")
 # streamlit.text(fruityvice_response.json())
 fruity_normal = pandas.json_normalize(fruityvice_response.json())
 streamlit.dataframe(fruity_normal)
