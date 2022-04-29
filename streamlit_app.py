@@ -4,9 +4,9 @@ import requests
 import snowflake.connector
 
 my_conn = snowflake.connector.connect(**streamlit.secrets["Snowflake"])
-my_cur = my_conn.cursor
-my_cur.execute("Select current_user(), current_account(), current_region())
-my_data_row = my_cur.fetchone
+my_cur = my_conn.cursor()
+my_cur.execute("Select current_user(), current_account(), current_region()")
+my_data_row = my_cur.fetchone()
 streamlit.text('Gday')
 streamlit.text(my_data_row)
            
