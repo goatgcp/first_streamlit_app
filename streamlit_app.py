@@ -41,13 +41,14 @@ streamlit.header('Fruit Load List contains:')
 streamlit.dataframe(my_data_rows)
 
 streamlit.header('Add which fruit')
-fruit_advice = streamlit.text_input('Advice about?', 'jackfruit')
-
-streamlit.stop()
-
+fruit_advice = streamlit.text_input('add what?', 'papaya')
+streamlit.write('you entered:', fruit_advice)
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
 my_cur.execute("insert into fruit_load_list values ('" + fruit_advice + "')" )
+my_cur.execute("insert into fruit_load_list values ('guava')" )
+my_cur.execute("insert into fruit_load_list values ('kiwi')" )
+my_cur.execute("insert into fruit_load_list values ('from streamlit')" )
 
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
