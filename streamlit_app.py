@@ -43,7 +43,7 @@ streamlit.dataframe(my_data_rows)
 streamlit.header('Add which fruit')
 fruit_advice = streamlit.text_input('Advice about?', 'jackfruit')
 
-streamlit.stop
+streamlit.stop()
 
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
